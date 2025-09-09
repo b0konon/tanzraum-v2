@@ -9,7 +9,7 @@ export default [
         'http://localhost:3000',
         process.env.FRONTEND_URL
       ],
-      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET'],
       headers: '*',
       credentials: true,
     },
