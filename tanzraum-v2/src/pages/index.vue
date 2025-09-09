@@ -23,7 +23,7 @@
         <v-avatar size="200" class="mb-4">
             <v-img
               v-if="employee.Avatar && employee.Avatar.url"
-              :src="employee.Avatar.url"
+              :src="`${baseUrl}${employee.Avatar.url}`"
             />
         </v-avatar>
         <h3 class="text-h4 mb-2">{{ employee.Name }}</h3>
@@ -39,6 +39,8 @@
 <script lang="ts" setup>
 import HeroSection from '@/components/HeroSection.vue';
 import { useStrapiStore } from '@/stores/useStrapiStore';
+import { computed } from 'vue';
 
 const strapiStore = useStrapiStore();
+const baseUrl = computed(() => import.meta.env.VITE_BASE_URL || '');
 </script>
