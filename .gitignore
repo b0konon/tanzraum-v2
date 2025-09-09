@@ -1,0 +1,111 @@
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*~
+*#
+ssl
+
+# Editor & IDE
+.idea
+.vscode
+nbproject
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+*.swn
+
+# Logs & Databases
+*.log
+*.tmp
+*.sql
+*.sqlite
+*.sqlite3
+pids
+logs
+results
+
+# Package files
+*.7z
+*.csv
+*.dat
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.seed
+*.so
+*.out
+*.pid
+
+# Node.js
+node_modules
+node_modules/
+.yarn/*
+!.yarn/cache
+!.yarn/unplugged
+!.yarn/patches
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Coverage & Tests
+coverage
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Strapi-specific
+license.txt
+exports
+.strapi
+dist
+build
+.strapi-updater.json
+.strapi-cloud.json
+.tsbuildinfo
+.eslintcache
+
+# Tanzraum-strapi uploads (keep .gitkeep)
+tanzraum-strapi/public/uploads/*
+!tanzraum-strapi/public/uploads/.gitkeep
+
+# Tanzraum-v2 build output
+tanzraum-v2/dist
+
+# Misc
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Ignore generated types
+tanzraum-v2/auto-imports.d.ts
+tanzraum-v2/components.d.ts
+tanzraum-v2/typed-router.d.ts
