@@ -8,6 +8,7 @@ export default [
       origin: [
         'http://localhost:3000',
         'http://localhost:1337',
+        'http://91.98.137.7:3000',
         process.env.FRONTEND_URL,
         process.env.SERVER_URL,
       ],
