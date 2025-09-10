@@ -7,9 +7,20 @@ export default [
     config: {
       origin: [
         'http://localhost:3000',
-        process.env.FRONTEND_URL
+        'http://localhost:1337',
+        process.env.FRONTEND_URL,
+        process.env.SERVER_URL,
       ],
-  methods: ['GET'],
+      methods: (ctx) => {
+        const origin = ctx.request.header.origin;
+        if (
+          origin === 'http://localhost:1337' ||
+          origin === process.env.SERVER_URL
+        ) {
+          return ['GET', 'POST', 'PUT', 'DELETE'];
+        }
+        return ['GET'];
+      },
       headers: '*',
       credentials: true,
     },

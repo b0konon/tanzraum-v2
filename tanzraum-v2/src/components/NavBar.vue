@@ -19,9 +19,9 @@
         <v-btn
           v-for="item in navItems"
           :key="item.href"
-          :to="item.href"
           text
           class="nav-btn"
+          @click="scrollToSection(item.href)"
         >
           {{ item.label }}
         </v-btn>
@@ -54,9 +54,8 @@
         <v-list-item
           v-for="(item, index) in navItems"
           :key="item.href"
-          :to="item.href"
           class="nav-item"
-          @click="drawer = false"
+          @click="() => { scrollToSection(item.href); drawer = false }"
         >
           <template v-slot:prepend>
             <v-icon :icon="getIcon(index)" color="primary"></v-icon>
@@ -83,23 +82,37 @@ import { ref } from 'vue'
 
 const drawer = ref(false)
 
+
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/aktuelles', label: 'Aktuelles' },
-  { href: '/kontakt', label: 'Kontakt' },
-  { href: '/kursplan', label: 'Kursplan' },
-  { href: '/angebot', label: 'Angebot' },
-  { href: '/team', label: 'Team' },
+  { href: '#home', label: 'Home' },
+  { href: '#team', label: 'Team' },
+  { href: '#angebot', label: 'Angebot' },
+  { href: '#kursplan', label: 'Kursplan' },
+  { href: '#kontakt', label: 'Kontakt' },
 ]
+
+function scrollToSection(href: string) {
+  if (href.startsWith('#')) {
+    const id = href.slice(1)
+    const el = document.getElementById(id)
+    if (el) {
+      const yOffset = -48;
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  } else {
+    // fallback: go to home
+    window.location.href = href
+  }
+}
 
 const getIcon = (index: number) => {
   const icons = [
     'mdi-home-outline',
-    'mdi-bullhorn-outline',
-    'mdi-card-account-phone-outline',
+    'mdi-account-group',
+    'mdi-human-female-dance',
     'mdi-calendar-month-outline',
-    'mdi-auto-awesome-outline',
-    'mdi-account-group'
+    'mdi-card-account-phone-outline',
   ]
   return icons[index]
 }
@@ -135,6 +148,8 @@ const getIcon = (index: number) => {
   font-size: 1rem !important;
   white-space: nowrap;
 }
+
+
 
 .nav-center {
   position: absolute;

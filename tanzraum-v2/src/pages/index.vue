@@ -1,7 +1,7 @@
 <template>
-  <HeroSection />
-  <v-container class="my-12">
-    <h2 class="text-h2 mb-8 text-center">Unser Team</h2>
+  <HeroSection id="home" />
+  <v-container id="team" class="my-12">
+    <h1 class="text-h2 mb-8 text-center">Unser Team</h1>
     <div v-if="strapiStore.loading" class="text-center my-8">
       <v-progress-circular indeterminate color="primary" />
     </div>
@@ -31,7 +31,13 @@
       </v-col>
     </v-row>
   </v-container>
-  <v-container class="my-12">
+  <v-container id="angebot" class="my-12 bg-primary" max-width="100vw">
+    <h2 class="text-h2 mb-8 text-center">Unser Angebot</h2>
+  </v-container>
+  <v-container id="kursplan" class="my-12">
+    <h2 class="text-h2 mb-8 text-center">Kursplan</h2>
+  </v-container>
+  <v-container id="kontakt" class="my-12 bg-primary" max-width="100vw">
     <ContactForm />
   </v-container>
 </template>
