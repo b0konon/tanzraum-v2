@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./components/AppFooter.vue')['default']
     ContactForm: typeof import('./components/ContactForm.vue')['default']
+    FooterSection: typeof import('./components/FooterSection.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HeroSection: typeof import('./components/HeroSection.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']

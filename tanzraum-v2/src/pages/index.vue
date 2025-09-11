@@ -40,6 +40,9 @@
   <v-container id="kontakt" class="my-12 bg-primary" max-width="100vw">
     <ContactForm />
   </v-container>
+  <v-container id="footer" class="my-12">
+    <FooterSection />
+  </v-container>
 </template>
 
 <script lang="ts" setup>
