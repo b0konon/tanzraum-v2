@@ -1,7 +1,6 @@
 <template>
-    <h1 class="text-h2 mb-8 text-center">Kontakt</h1>
     <v-form v-model="valid">
-        <v-container>
+        <v-container color="white" class="form-container" fluid>
             <v-row>
                 <v-col
                 cols="12"
@@ -12,6 +11,7 @@
                     :counter="30"
                     :rules="nameRules"
                     label="Name"
+                    variant="solo"
                     required
                 ></v-text-field>
                 </v-col>
@@ -30,6 +30,7 @@
                     v-model="email"
                     :rules="emailRules"
                     label="E-mail"
+                    variant="solo"
                     required
                 ></v-text-field>
                 </v-col>
@@ -41,16 +42,19 @@
                     :counter="500"
                     :rules="nameRules"
                     label="Nachricht"
+                    variant="solo"
                     required
                     auto-grow
                     rows="3"
                     ></v-textarea>
                 </v-col>
             </v-row>
-            <v-row>
+            <v-row justify="center">
                 <v-btn
-                    :disabled="!valid"
+                    class="elevation-4 rounded-xl mt-4 text-white" 
                     color="primary"
+                    size="large"
+                    :disabled="!valid"
                 >
                     Senden
                 </v-btn>
@@ -58,6 +62,7 @@
         </v-container>
     </v-form>
 </template>
+
 <script>
   export default {
     data: () => ({
@@ -92,3 +97,10 @@
     }),
   }
 </script>
+
+<style scoped>
+.form-container {
+    max-width: 800px;
+    margin: auto;
+}
+</style>
