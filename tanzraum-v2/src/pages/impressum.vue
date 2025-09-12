@@ -45,10 +45,3 @@
     </div>
   </v-container>
 </template>
-
-<script lang="ts" setup>
-// No script logic needed for static privacy policy
-</script>
-
-<style scoped>
-</style>

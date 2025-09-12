@@ -134,8 +134,8 @@ const getIcon = (index: number) => {
   bottom: 0;
   z-index: 10;
   background-color: rgb(var(--v-theme-primary));
-  clip-path: polygon(0 0, calc(100% - 30px) 0, calc(100% - 60px) 100%, 0 100%);
-  padding-right: 60px;
+  border-bottom-right-radius: 20px;
+  padding-right: 20px;
   padding-left: 16px;
   display: flex;
   align-items: center;
