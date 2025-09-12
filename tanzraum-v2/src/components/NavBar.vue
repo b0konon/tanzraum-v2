@@ -125,6 +125,7 @@ const getIcon = (index: number) => {
   left: 0 !important;
   right: 0 !important;
   z-index: 1000 !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
