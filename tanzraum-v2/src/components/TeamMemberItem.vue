@@ -6,6 +6,7 @@
         </h3>
         <div class="mb-4">{{ title }}</div>
         <div v-if="isOpen" class="px-4 mb-4 text-block text-body-2">
+            <v-divider class="mb-4"></v-divider>
             <p>{{ description }}</p>
         </div>
             <v-btn 

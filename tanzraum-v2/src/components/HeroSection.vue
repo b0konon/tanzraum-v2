@@ -13,7 +13,7 @@
         <v-col cols="12" md="6" class="d-flex flex-column justify-center">
           <div class="text-center text-md-left">
             <h1 class="text-h1 mb-8 text-primary">Tanzraum Jever</h1>
-            <h3 class="text-h3 mb-8 font-weight-thin text-white">Die Schule für künstlerischen Tanz und Bewegung</h3>
+            <h3 class="text-h3 mb-8 font-weight-thin text-white text-glow">Die Schule für künstlerischen Tanz und Bewegung</h3>
             <v-btn 
               class="elevation-4 rounded-xl mb-4 mr-4" 
               color="primary"
@@ -61,6 +61,10 @@ function scrollToSection(href: string) {
 }
 
 .v-parallax :deep(.v-img__img) {
-  filter: grayscale(100%);
+  filter: blur(4px) grayscale(100%);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
 }
 </style>
