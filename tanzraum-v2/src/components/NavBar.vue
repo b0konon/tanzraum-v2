@@ -6,14 +6,14 @@
     height="48"
     class="navbar-container"
   >
-    <!-- Logo with angled background -->
+    <!-- Logo -->
     <div class="logo-container">
       <v-toolbar-title class="logo-text">
         Tanzraum Jever
       </v-toolbar-title>
     </div>
     
-    <!-- Centered Navigation for Desktop -->
+    <!-- Desktop Navigation -->
     <div class="nav-center">
       <div class="hidden-md-and-down">
         <v-btn
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu-btn hidden-lg-and-up">
       <v-btn
         icon
@@ -49,7 +49,6 @@
     class="mobile-drawer"
   >
     <div class="drawer-content">
-      <!-- Navigation Items -->
       <v-list class="flex-grow-1">
         <v-list-item
           v-for="(item, index) in navItems"
@@ -64,7 +63,6 @@
         </v-list-item>
       </v-list>
       
-      <!-- Footer -->
       <div class="drawer-footer">
         <v-divider></v-divider>
         <div class="pa-4">

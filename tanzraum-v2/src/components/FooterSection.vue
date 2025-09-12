@@ -12,9 +12,6 @@
     </v-container>
 </template>
 
-<script lang="ts" setup>
-// No script logic needed for static footer
-</script>
 <style scoped>
 .footer-section {
     color: #fff;
