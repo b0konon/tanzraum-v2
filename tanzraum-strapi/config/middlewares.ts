@@ -9,7 +9,8 @@ export default [
         'http://91.98.137.7:3000',
         'http://localhost:3000',
         'https://tanzraumjever.de',
-        'https://www.tanzraumjever.de'
+        'https://www.tanzraumjever.de',
+        'https://api.tanzraumjever.de'
       ],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       headers: '*',
