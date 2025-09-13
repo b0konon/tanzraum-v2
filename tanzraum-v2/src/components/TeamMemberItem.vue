@@ -1,5 +1,5 @@
 <template>
-    <div class="container" color="white">
+    <div class="container">
         <img class="avatar" :src="avatar" />
         <h3 class="text-h4 mt-2 text-primary px-2">
             {{ name }}
@@ -40,6 +40,7 @@ function toggleOpen() {
 <style scoped>
 .container {
     width: 300px;
+    background-color: white;
     border-radius: 20px;
     display: flex;
     align-items: center;
