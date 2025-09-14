@@ -13,17 +13,13 @@
       target="_blank"
       :title="item.title"
     >
-      <v-icon
-        :icon="item.icon"
-        :size="item.icon === '$vuetify' ? 24 : 16"
-      />
     </a>
 
     <div
       class="text-caption text-disabled"
       style="position: absolute; right: 16px;"
     >
-      &copy; 2016-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">Tanzraum Jever</span>
+      &copy; 2007-{{ (new Date()).getFullYear() }} <span class="d-none d-sm-inline-block">Tanzraum Jever</span>
     </div>
   </v-footer>
 </template>
