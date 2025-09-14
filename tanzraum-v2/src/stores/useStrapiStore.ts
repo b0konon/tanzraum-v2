@@ -9,6 +9,7 @@ export const useStrapiStore = defineStore('strapi', {
     employees: null as any,
     posts: null as any,
     courses: null as any,
+    services: null as any,
     loading: false,
     error: null as null | unknown,
   }),
@@ -55,6 +56,20 @@ export const useStrapiStore = defineStore('strapi', {
         this.loading = false;
       }
     },
+    async fetchServices() {
+      this.loading = true;
+      this.error = null;
+      try {
+        const res = await axios.get(`${API_URL}services`, {
+          headers: { Authorization: `Bearer ${API_TOKEN}` },
+        });
+        this.services = res.data;
+      } catch (err) {
+        this.error = err;
+      } finally {
+        this.loading = false;
+      }
+    },
     async fetchAll() {
       this.loading = true;
       this.error = null;
@@ -63,6 +78,7 @@ export const useStrapiStore = defineStore('strapi', {
           this.fetchEmployees(),
           this.fetchPosts(),
           this.fetchCourses(),
+          this.fetchServices(),
         ]);
       } catch (err) {
         this.error = err;

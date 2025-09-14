@@ -4,7 +4,7 @@
     <TeamSection />
   </v-container>
   <v-container id="angebot" class="my-12 bg-primary" max-width="100vw">
-    <h2 class="text-h2 mb-8 text-center">Unser Angebot</h2>
+    <AngebotSection />
   </v-container>
   <v-container id="kursplan" class="my-12">
     <h2 class="text-h2 mb-8 text-center">Kursplan</h2>
