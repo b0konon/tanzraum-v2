@@ -11,6 +11,20 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "day": {
+      "type": "enumeration",
+      "enum": [
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag"
+      ]
+    },
     "starttime": {
       "type": "string",
       "default": "08:00",
@@ -23,20 +37,20 @@
       "required": true,
       "regex": "^([01]\\d|2[0-3]):[0-5]\\d$"
     },
-    "trainer": {
-      "type": "string",
-      "required": true
-    },
-    "name": {
-      "type": "string",
-      "required": true
-    },
     "level": {
       "type": "string",
       "required": true
     },
     "description": {
       "type": "text"
+    },
+    "trainer": {
+      "type": "enumeration",
+      "enum": [
+        "Bettina",
+        "Susanne",
+        "Alena"
+      ]
     }
   }
 }
