@@ -1,15 +1,15 @@
 <template>
-  <HeroSection id="home" />
+  <HeroSection id="home" class="shadow"/>
   <v-container id="team" class="my-12" max-width="100vw">
     <TeamSection />
   </v-container>
-  <v-container id="angebot" class="my-12 bg-primary" max-width="100vw">
+  <v-container id="angebot" class="my-12 bg-primary shadow" max-width="100vw">
     <AngebotSection />
   </v-container>
   <v-container id="kursplan" class="my-12">
-    <h2 class="text-h2 mb-8 text-center">Kursplan</h2>
+    <KursplanSection />
   </v-container>
-  <v-container id="kontakt" class="my-12 background-primary" max-width="100vw">
+  <v-container id="kontakt" class="my-12 background-primary shadow" max-width="100vw">
     <ContactSection />
   </v-container>
   <v-container id="footer" class="my-12">
@@ -29,5 +29,10 @@ const baseUrl = computed(() => import.meta.env.VITE_BASE_URL || '');
 <style scoped>
 .background-primary {
   background-color: #83154f;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5),   /* bottom shadow */
+              0 -4px 8px rgba(0, 0, 0, 0.5);  /* top shadow */
 }
 </style>
