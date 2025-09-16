@@ -16,6 +16,7 @@ declare module 'vue' {
     FooterSection: typeof import('./components/FooterSection.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     HeroSection: typeof import('./components/HeroSection.vue')['default']
+    Kursplan: typeof import('./components/Kursplan.vue')['default']
     KursplanSection: typeof import('./components/KursplanSection.vue')['default']
     NavBar: typeof import('./components/NavBar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
