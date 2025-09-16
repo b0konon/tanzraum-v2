@@ -28,6 +28,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 1.5rem 1.5rem 1rem 1.5rem;
   min-height: 140px;
+  margin-bottom: 1.5rem;
 }
 .contact-link {
   color: #83154f;
