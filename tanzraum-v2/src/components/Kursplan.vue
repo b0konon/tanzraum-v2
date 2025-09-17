@@ -1,6 +1,6 @@
 <template>
     <div ref="swipeTarget" class="mx-auto">
-        <div class="day-selector">
+        <div v-if="!isDesktop" class="day-selector flex justify-center">
             <button
                 v-for="day in days"
                 :key="day"
@@ -10,13 +10,30 @@
                 {{ day }}
             </button>
         </div>
-        <div v-for="course in filteredCourses" :key="course.id" class="course-box">
-            <div class="course-header">
-                <span class="course-time">{{ course.starttime }} - {{ course.endtime }}</span>
-                <span class="course-trainer">{{ course.trainer }}</span>
+        <div v-if="!isDesktop" class="course-list">
+            <div v-for="course in filteredCourses" :key="course.id" class="course-box">
+                <div class="course-header">
+                    <span class="course-time">{{ course.starttime }} - {{ course.endtime }}</span>
+                    <span class="course-trainer">{{ course.trainer }}</span>
+                </div>
+                <div class="course-title">{{ course.title }}</div>
+                <div class="course-level">{{ course.level }}</div>
             </div>
-            <div class="course-title">{{ course.title }}</div>
-            <div class="course-level">{{ course.level }}</div>
+        </div>
+        <div v-else class="desktop-course-lists">
+            <div v-for="day in days" :key="day" class="desktop-course-list">
+                <div class="desktop-day-label">{{ day }}</div>
+                <div class="course-list">
+                    <div v-for="course in coursesByDay(day)" :key="course.id" class="course-box">
+                        <div class="course-header">
+                            <span class="course-time">{{ course.starttime }} - {{ course.endtime }}</span>
+                            <span class="course-trainer">{{ course.trainer }}</span>
+                        </div>
+                        <div class="course-title">{{ course.title }}</div>
+                        <div class="course-level">{{ course.level }}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -32,9 +49,23 @@ const courses = computed(() => strapiStore.courses?.data || []);
 const days = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag'];
 const selectedDay = ref('Montag');
 
+
 const filteredCourses = computed(() =>
-  courses.value.filter((c: any) => c.day?.toLowerCase() === selectedDay.value.toLowerCase())
+    courses.value.filter((c: any) => c.day?.toLowerCase() === selectedDay.value.toLowerCase())
 );
+
+function coursesByDay(day: string) {
+    return courses.value.filter((c: any) => c.day?.toLowerCase() === day.toLowerCase());
+}
+
+const isDesktop = ref(false);
+if (typeof window !== 'undefined') {
+    const checkDesktop = () => {
+        isDesktop.value = window.innerWidth >= 1600;
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+}
 
 const swipeTarget = ref<HTMLElement | null>(null);
 const { direction, isSwiping } = useSwipe(swipeTarget);
@@ -58,34 +89,58 @@ watch(isSwiping, (swiping) => {
 </script>
 
 <style scoped>
+.course-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.desktop-course-lists {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+.desktop-course-list {
+    min-width: 300px;
+    max-width: 320px;
+    flex: 1 1 0;
+}
+.desktop-day-label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #83154f;
+}
 .course-box {
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 
+                0 -2px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 1.5rem;
-    max-width: 400px;
+    max-width: 360px;
+    width: 100%;
 }
 .course-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem 0.5rem 1rem;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     color: #83154f;
-    font-size: 1.2rem;
     background: #fff;
     font-weight: 500;
 }
 .course-title {
     background: #83154f;
     color: #fff;
-    font-size: 1.4rem;
     padding: 1rem 1rem 0.5rem 1rem;
+    font-size: large;
     font-weight: 400;
 }
 .course-level {
     background: #83154f;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: medium;
     padding: 0 1rem 1rem 1rem;
 }
 .day-selector {
