@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AktuellesPost: typeof import('./components/AktuellesPost.vue')['default']
     AngebotItem: typeof import('./components/AngebotItem.vue')['default']
     AngebotSection: typeof import('./components/AngebotSection.vue')['default']
     AppFooter: typeof import('./components/AppFooter.vue')['default']

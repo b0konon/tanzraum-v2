@@ -32,7 +32,7 @@ export const useStrapiStore = defineStore('strapi', {
       this.loading = true;
       this.error = null;
       try {
-        const res = await axios.get(`${API_URL}posts`, {
+        const res = await axios.get(`${API_URL}posts?populate=*`, {
           headers: { Authorization: `Bearer ${API_TOKEN}` },
         });
         this.posts = res.data;

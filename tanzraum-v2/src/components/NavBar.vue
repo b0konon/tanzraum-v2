@@ -77,8 +77,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const drawer = ref(false)
+const router = useRouter ? useRouter() : null
 
 
 const navItems = [
@@ -87,20 +89,30 @@ const navItems = [
   { href: '#angebot', label: 'Angebot' },
   { href: '#kursplan', label: 'Kursplan' },
   { href: '#kontakt', label: 'Kontakt' },
+  { href: '/aktuelles', label: 'Aktuelles' },
 ]
 
 function scrollToSection(href: string) {
   if (href.startsWith('#')) {
-    const id = href.slice(1)
-    const el = document.getElementById(id)
+    const isIndex = window.location.pathname === '/' || window.location.pathname === '/index.html';
+    if (!isIndex) {
+      if (router) {
+        router.push({ path: '/', hash: href });
+      } else {
+        window.location.href = '/' + href;
+      }
+      return;
+    }
+    const id = href.slice(1);
+    const el = document.getElementById(id);
     if (el) {
       const yOffset = -48;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   } else {
-    // fallback: go to home
-    window.location.href = href
+    // fallback: go to home or external page
+    window.location.href = href;
   }
 }
 
@@ -111,6 +123,7 @@ const getIcon = (index: number) => {
     'mdi-human-female-dance',
     'mdi-calendar-month-outline',
     'mdi-card-account-phone-outline',
+    'mdi-newspaper-variant-multiple-outline'
   ]
   return icons[index]
 }

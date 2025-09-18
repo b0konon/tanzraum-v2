@@ -24,6 +24,7 @@
                 :name="employee.Name"
                 :title="employee.Title"
                 :description="employee.description"
+                class="mb-8"
             />
         </v-col>
         </v-row>
