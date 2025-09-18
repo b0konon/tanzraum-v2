@@ -26,8 +26,8 @@
                 <div class="course-list">
                     <div v-for="course in coursesByDay(day)" :key="course.id" class="course-box">
                         <div class="course-header">
-                            <span class="course-time">{{ course.starttime }} - {{ course.endtime }}</span>
-                            <span class="course-trainer">{{ course.trainer }}</span>
+                            <span>{{ course.starttime }} - {{ course.endtime }}</span>
+                            <span>{{ course.trainer }}</span>
                         </div>
                         <div class="course-title">{{ course.title }}</div>
                         <div class="course-level">{{ course.level }}</div>
@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import { useStrapiStore } from '@/stores/useStrapiStore';
 import { computed, ref, watch } from 'vue';
-import { set, useSwipe } from '@vueuse/core';
+import { useSwipe } from '@vueuse/core';
 
 const strapiStore = useStrapiStore();
 const courses = computed(() => strapiStore.courses?.data || []);
